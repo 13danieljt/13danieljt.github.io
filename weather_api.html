@@ -2,12 +2,30 @@
 <html lang="en">
 <head>
     <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=0.2">
-    <title>Weather Widget</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Scaled Weather Widget</title>
+    <style>
+        /* Scale the widget smaller */
+        #widget-wrapper {
+            transform: scale(0.3); /* Adjust scale value as needed */
+            transform-origin: top left; /* Ensures scaling happens from the top-left corner */
+            width: fit-content; /* Ensure the wrapper resizes dynamically */
+        }
+
+        /* Prevent overflow if placed in a restricted frame */
+        body {
+            margin: 0;
+            overflow: hidden;
+        }
+    </style>
     <script src="https://openweathermap.org/themes/openweathermap/assets/vendor/owm/js/d3.min.js"></script>
 </head>
 <body>
-    <div id="openweathermap-widget-21"></div>
+    <!-- Wrapper for scaling -->
+    <div id="widget-wrapper">
+        <div id="openweathermap-widget-21"></div>
+    </div>
+
     <script>
         window.myWidgetParam ? window.myWidgetParam : window.myWidgetParam = [];
         window.myWidgetParam.push({
